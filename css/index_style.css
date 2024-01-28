@@ -1,0 +1,47 @@
+
+
+body{
+    background-color: #000;
+}
+
+.rigth-side img{
+    vertical-align: middle;
+    width: 50px !important;
+}
+
+nav{
+    left: -226px;
+    z-index: 9999999999;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.rigth-side img ,i{
+    cursor: pointer;
+}
+
+.side-nav-links ul li{
+    cursor: pointer;
+}
+
+.img-layer{
+    width: 100%;
+    height: 100%;
+    top:100%;
+    background-color: #f9f6f6ca;
+    transition: all 1s;
+}
+
+.meal-img{
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+.meal-img:hover .img-layer{
+    top: 0;
+}
+
+

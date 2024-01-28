@@ -1,0 +1,80 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <title>Yummy</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index_style.css">
+</head>
+<body>
+    
+
+
+
+    <nav class="bg-danger position-fixed top-0">
+        <div class="side-nav d-flex min-vh-100 ">
+            <div class="left-side d-flex min-vh-100 flex-column justify-content-between py-3 bg-black text-white px-2">
+                <div class="side-nav-links">
+                    <ul class="list-unstyled">
+                        <li onclick="showSearchInputs();closeSideNav()" class="p-3 position-relative">Search</li>
+                        <li onclick="getCategoriesMeals();closeSideNav()" class="p-3 position-relative">Categories</li>
+                        <li onclick="getAllArea();closeSideNav()" class="p-3 position-relative">Area</li>
+                        <li onclick="getAllIngredients();closeSideNav()" class="p-3 position-relative">Ingredients</li>
+                        <li onclick="showContactUs();closeSideNav()" class="p-3 position-relative">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="nav-footer">
+                    <div class="icon-footer">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <p>Copyright Â© 2019 All Rights
+                        <br>Reserved.</p>
+                </div>
+            </div>
+
+            
+
+            <div class="rigth-side d-flex justify-content-between py-3 bg-white px-3 text-center flex-column">
+                <img src="images/logo.png" alt="">
+                <i class="fa-solid fa-2x fa-align-justify openCloseNav"></i>
+                
+                
+                <div>
+                    <i class="fa-solid fa-globe d-block"></i>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="search">
+        <div class="container">
+            <div class="row" id="searchInputs">
+            
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="mainHome" class="min-vh-100">
+        <div class="container">
+            <div class="row g-4 py-5" id="home">
+                
+            </div>
+        </div>
+    </section>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/mine.js"></script>
+
+</body>
+</html>
