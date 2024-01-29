@@ -1,4 +1,12 @@
 
+
+$(document).ready(function () {
+
+        $('.loading-screen').fadeOut(500);
+        
+    
+});
+
 let homeData;
 function openSideNav(){
     $('nav').animate({left:"0px"},500)
@@ -50,11 +58,13 @@ function showSearchInputs(){
 }
 
 async function getHomeMeals(){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=`)
     let finailResponse=await response.json();
     homeData=finailResponse.meals;
     console.log(homeData)
     displayHomeMeals()
+    $('.loading-inner').fadeOut(500);
 }
 getHomeMeals()
 function displayHomeMeals(){
@@ -78,12 +88,14 @@ function displayHomeMeals(){
 }
 
 async function getMealsDetails(mealId){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     let finalResponse=await response.json();
     displayMealsDetails(finalResponse.meals[0])
     $('.closeDetails').click(function(){
         getHomeMeals()
     })
+    $('.loading-inner').fadeOut(500);
 }
 function displayMealsDetails(arr){
 
@@ -151,18 +163,22 @@ function displayMealsDetails(arr){
 
 
 async function getSearchMealsByName(meal){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
     let finailResponse=await response.json();
     
     //console.log(finailResponse.meals)
     displaySearchResulet(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 }
 
 
 async function getSearchMealsByFirstName(letter){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${letter}`)
     let finailResponse=await response.json();
     displaySearchResulet(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 } 
 
 function displaySearchResulet (arr) { 
@@ -186,10 +202,12 @@ function displaySearchResulet (arr) {
 
 
 async function getCategoriesMeals(){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
     let finailResponse=await response.json();
 
     displayAllCategories(finailResponse.categories)
+    $('.loading-inner').fadeOut(500);
 
 }
 
@@ -214,17 +232,21 @@ function displayAllCategories(arr){
 }
 
 async function filterByCategory(category){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
     let finailResponse=await response.json();
 
     displaySearchResulet(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 
 }
 
 async function getAllArea(){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
     let finailResponse=await response.json();
     displayAllArea(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 }
 
 function displayAllArea(arr){
@@ -245,19 +267,23 @@ function displayAllArea(arr){
 }
 
 async function getFilterByArea(area){
+    $('.loading-inner').fadeIn(500);
     let response=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
     let finailResponse=await response.json();
     displaySearchResulet(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 }
 
 
 async function getAllIngredients(){
+    $('.loading-inner').fadeIn(500);
     let responce=await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
     let finalResponce=await responce.json();
 
     console.log(finalResponce)
 
     displayAllIngredients(finalResponce.meals)
+    $('.loading-inner').fadeOut(500);
 }
 
 function displayAllIngredients(arr){
@@ -280,9 +306,11 @@ function displayAllIngredients(arr){
 
 
 async function getFilterByIngredients(ingre){
+    $('.loading-inner').fadeIn(500);
     let responce=await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingre}`)
     let finailResponse=await responce.json();
     displaySearchResulet(finailResponse.meals)
+    $('.loading-inner').fadeOut(500);
 }
 
 
@@ -295,27 +323,27 @@ function showContactUs(){
             <div class="container">
                 <div class="row py-5 g-4">
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="text" name="" id="name" placeholder="Enter Your Name">
+                        <input class="form-control" type="text" name="" id="name" placeholder="Enter Your Name">
                         <div class="d-none my-2 py-3 rounded rounded-2 name bg-danger"><h6>Please enter a valid name First letter capital (4-20 characters)</h6></div>
                     </div>
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="text" name="" id="email" placeholder="Enter Your Email">
+                        <input class="form-control" type="text" name="" id="email" placeholder="Enter Your Email">
                         <div class="d-none my-2 py-3 rounded rounded-2 email bg-danger"><h6>Please enter a valid email address(email@example.com)</h6></div>
                     </div>
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="tel" name="" id="phone" placeholder="Enter Your Phone">
+                        <input class="form-control" type="tel" name="" id="phone" placeholder="Enter Your Phone">
                         <div class="d-none my-2 py-3 rounded rounded-2 phone bg-danger"><h6>please Enter avalid Email(01********)</h6></div>
                     </div>
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="number" name="" id="age" placeholder="Enter Your Age">
+                        <input class="form-control" type="number" name="" id="age" placeholder="Enter Your Age">
                         <div class="d-none my-2 py-3 rounded rounded-2 age bg-danger"><h6>please enter age between 1-100</h6></div>
                     </div>
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="text" name="" id="password" placeholder="Enter Your Password">
+                        <input class="form-control" type="password" name="" id="password" placeholder="Enter Your Password">
                         <div class="d-none my-2 py-3 rounded rounded-2 password bg-danger"><h6>Please enter a valid password (8-20 characters)</h6></div>
                     </div>
                     <div class="col-md-6">
-                        <input onkeyup="valid()" class="form-control" type="text" name="" id="repassword" placeholder="Repassword">
+                        <input class="form-control" type="password" name="" id="repassword" placeholder="Repassword">
                         <div class="d-none my-2 py-3 rounded rounded-2 repassword bg-danger"><h6>Passwords do not match</h6></div>
                     </div>
                     <button id="btns" class="btn btn-outline-danger w-25 disabled mx-auto">Submit</button>
@@ -325,18 +353,45 @@ function showContactUs(){
         </div>
     
     `
-    // let nameInput=document.getElementById('name');
-    // let emailInput=document.getElementById('email');
-    // let phoneInput=document.getElementById('phone');
-    // let ageInput=document.getElementById('age');
-    // let passwordInput=document.getElementById('password');
-    // let repasswordInput=document.getElementById('repassword');
+    let nameInput=document.getElementById('name');
+    let emailInput=document.getElementById('email');
+    let phoneInput=document.getElementById('phone');
+    let ageInput=document.getElementById('age');
+    let passwordInput=document.getElementById('password');
+    let repasswordInput=document.getElementById('repassword');
+
+    nameInput.addEventListener('keyup',function(){
+        valid()
+    })
+
+    emailInput.addEventListener('keyup',function(){
+        valid()
+    })
+
+    phoneInput.addEventListener('keyup',function(){
+        valid()
+    })
+
+    ageInput.addEventListener('keyup',function(){
+        valid()
+    })
+
+    passwordInput.addEventListener('keyup',function(){
+        valid()
+    })
+
+    repasswordInput.addEventListener('keyup',function(){
+        valid();
+
+    })
+
+    
 }
 
 
 
 
-let nameRegx=/^[A-Z][a-z]{4,20}$/;
+let nameRegx=/^[a-zA-Z ]+$/;
 let emailRegx=/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,6}$/;
 let phoneRegx=/^01[0125][0-9]{8}$/;
 let ageRegx=/^[1-9][0-9]{0,1}$|100/
@@ -344,79 +399,104 @@ let passwordRgex=/\w{8,20}/
 
 
 
-// function valid(){
-    
-//     if(validName()){
-//         $('#name').removeClass("is-invalid")
-//         $('#name').addClass("is-valid")
-//         $('.name').addClass('d-none')
-//     }
-//     else{
-//         $('#name').addClass("is-invalid")
-//         $('.name').removeClass('d-none')
-//     }
-// }
-
-// function validtwo(){
-//     if(validEmail()){
-//         $('#email').removeClass("is-invalid")
-//         $('#email').addClass("is-valid")
-//         $('.email').addClass('d-none')
-//     }
-//     else{
-//         $('#email').addClass("is-invalid")
-//         $('.email').removeClass('d-none')
-//     }
-// }
-
-// function validthree(){
-//     if(validPhone){
-//         $('#phone').removeClass("is-invalid")
-//         $('#phone').addClass("is-valid")
-//         $('.phone').addClass('d-none')
-//     }
-//     else{
-//         $('#phone').addClass("is-invalid")
-//         $('.phone').removeClass('d-none')
-//     }
-// }
-
 
 function valid(){
     if(validName()&&validEmail()&&validPhone()&&validAge()&&validPassword()&&validRepass()){
+        alert('done')
+
         document.getElementById('btns').removeAttribute('disabled')
+
+        console.log()//.disabled)
     }
+    
     
 }
 
 
 function validName(){
     let nameInput=document.getElementById('name').value;
-    return(nameRegx.test(nameInput));
+    console.log('nameRegex',nameRegx.test(nameInput))
+    if(nameRegx.test(nameInput)){
+        $('.name').removeClass('d-block')
+        $('.name').addClass('d-noe')
+        return(nameRegx.test(nameInput));
+    }
+    else{
+        $('.name').removeClass('d-none');
+        $('.name').addClass('d-block')
+    }
+
 }
 
 function validEmail(){
     let emailInput=document.getElementById('email').value;
-    return(emailRegx.test(emailInput));
+    console.log('emailRegex',emailRegx.test(emailInput))
+
+    if(emailRegx.test(emailInput)){
+        $('.email').removeClass('d-block')
+        $('.email').addClass('d-noe')
+        return(emailRegx.test(emailInput))
+    }
+    else{
+        $('.email').removeClass('d-none');
+        $('.email').addClass('d-block')
+    }
+
+    ;
 }
 
 function validPhone(){
     let phoneInput=document.getElementById('phone').value;
-    return(phoneRegx.test(phoneInput));
+    console.log('phone',phoneRegx.test(phoneInput))
+    
+
+    if(phoneRegx.test(phoneInput)){
+        $('.phone').removeClass('d-block')
+        $('.phone').addClass('d-noe')
+        return(phoneRegx.test(phoneInput));
+    }
+    else{
+        $('.phone').removeClass('d-none');
+        $('.phone').addClass('d-block')
+    }
+
 }
 
 function validAge(){
     let ageInput=document.getElementById('age').value;
-    return(ageRegx.test(ageInput));
+    console.log('Age',ageRegx.test(ageInput))
+
+
+    if(ageRegx.test(ageInput)){
+        $('.age').removeClass('d-block')
+        $('.age').addClass('d-noe')
+        return(ageRegx.test(ageInput));
+    }
+    else{
+        $('.age').removeClass('d-none');
+        $('.age').addClass('d-block')
+    }
+
+    
 }
 function validPassword(){
     let passwordInput=document.getElementById('password').value;
-    return(passwordRgex.test(passwordInput));
+    console.log('password',passwordRgex.test(passwordInput))
+    if(passwordRgex.test(passwordInput)){
+        $('.password').removeClass('d-block')
+        $('.password').addClass('d-noe')
+        return(passwordRgex.test(passwordInput));
+    }
+    else{
+        $('.password').removeClass('d-none');
+        $('.password').addClass('d-block')
+    }
 }
 
 function validRepass(){
     let repasswordInput=document.getElementById('repassword').value;
     let passwordInput=document.getElementById('password').value;
+    console.log('reeeeeeeee',repasswordInput==passwordInput)
     return repasswordInput==passwordInput;
 }
 
